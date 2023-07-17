@@ -170,8 +170,8 @@ struct Node<const D: usize, C, T>
 where
     C: PartialOrd + Copy + Default,
 {
-    rect: Rect<D, C>,
-    data: Data<D, C, T>,
+    pub rect: Rect<D, C>,
+    pub data: Data<D, C, T>,
 }
 
 impl<const D: usize, C, T: PartialEq> Node<D, C, T>
@@ -396,8 +396,8 @@ where
     C: PartialOrd + Copy + Default,
 {
     root: Option<Node<D, C, T>>,
-    length: usize,
-    height: usize,
+    pub length: usize,
+    pub height: usize,
 }
 
 impl<const D: usize, C, T: PartialEq> RTree<D, C, T>
@@ -509,8 +509,8 @@ struct StackNode<'a, const D: usize, C, T>
 where
     C: PartialOrd + Copy + Sub<Output = C> + Mul<Output = C> + Default,
 {
-    nodes: &'a [Node<D, C, T>],
-    index: usize,
+    pub nodes: &'a [Node<D, C, T>],
+    pub index: usize,
 }
 
 impl<'a, const D: usize, C, T> StackNode<'a, D, C, T>
@@ -649,8 +649,8 @@ struct NearbyItem<'a, const D: usize, C, T>
 where
     C: PartialOrd + Copy + Default,
 {
-    dist: C,
-    node: &'a Node<D, C, T>,
+    pub dist: C,
+    pub node: &'a Node<D, C, T>,
 }
 
 impl<'a, const D: usize, C, T> PartialEq for NearbyItem<'a, D, C, T>
